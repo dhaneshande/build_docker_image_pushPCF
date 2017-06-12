@@ -5,7 +5,6 @@ jobs:
   serial: true
   plan:
   - get: resource-tutorial
-  - put: hello-world-docker-image
     params:
       build: resource-tutorial/docker
 jobs:
@@ -16,7 +15,8 @@ jobs:
   - get: resource-tutorial
   - put: hello-world-docker-image
     params:
-      build: resource-tutorial/manifest/manifest.yml
+      manifest: resource-tutorial/manifest/manifest.yml
+      path: resource-tutorial
 resources:
 - name: resource-tutorial
   type: git
